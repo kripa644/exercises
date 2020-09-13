@@ -1,0 +1,1 @@
+console.log("con" + "cat" + "e" + "nate");
