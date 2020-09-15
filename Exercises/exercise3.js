@@ -5,6 +5,6 @@ let bottle = function(n) {
         console.log(n+ " bottles of water on the wall,\n" +n+ " bottles of water,\nya’ take one down, ya’ pass it around,\n" );
         bottle(n-1);
     }
-}
+};
 
 bottle(99);

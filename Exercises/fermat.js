@@ -16,6 +16,6 @@ let checkFermat = function(a, b, c, n) {
     else {
         console.log("No, that doesn’t work.");
     }
-}
+};
 
 checkFermat(2, 3, 4, 3);
