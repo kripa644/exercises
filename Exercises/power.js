@@ -15,4 +15,4 @@ let power = function(x, n) {
     }
 }
 
-console.log(power(2,4));
+console.log(power(2,5));

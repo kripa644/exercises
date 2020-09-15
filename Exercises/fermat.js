@@ -10,7 +10,7 @@ let checkFermat = function(a, b, c, n) {
     if (n ==2 ) {
         console.log("Fermat's theorem holds");
     }
-    else if (n >= 2 && (power(a, n) + power(b, n) == power(c, n))) {
+    else if (n > 2 && (power(a, n) + power(b, n) == power(c, n))) {
         console.log("Holy smokes, Fermat was wrong!");
     }
     else {
@@ -18,4 +18,4 @@ let checkFermat = function(a, b, c, n) {
     }
 };
 
-checkFermat(2, 3, 4, 3);
+checkFermat(1, 2, 3, 4);
