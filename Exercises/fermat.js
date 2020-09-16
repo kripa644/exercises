@@ -9,8 +9,7 @@ let power = (base, exponent) => {
 let checkFermat = function(a, b, c, n) {
     if (n > 2 && (power(a, n) + power(b, n) == power(c, n))) {
         console.log("Holy smokes, Fermat was wrong!");
-    }
-    else {
+    } else {
         console.log("No, that doesn’t work.");
     }
 };
