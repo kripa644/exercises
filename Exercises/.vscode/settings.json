@@ -1,0 +1,7 @@
+{
+    "eslint.debug": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.format.enable": true,
+    "eslint.enable": true,
+    "eslint.nodePath": "C:\\Users\\hp\\AppData\\Roaming\\npm\\node_modules" 
+}
