@@ -1,5 +1,5 @@
 let bottle = function(n) {
-    if (n == 0) {
+    if (n === 0) {
         console.log("No bottles of water on the wall,\n" +
         "no bottles of water,\n" +
         "ya’ can’t take one down, ya’ can’t pass it around,\n" +

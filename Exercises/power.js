@@ -7,7 +7,7 @@ let evenPower = (base, exponent) => {
 };
 
 let power = function(x, n) {
-    if (n == 0) {
+    if (n === 0) {
         return 1;
     } else {
         return n % 2 == 0 ? evenPower( evenPower(x, n/2), 2) : x * power(x, n-1);
