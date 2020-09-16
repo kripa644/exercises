@@ -7,4 +7,4 @@ let oddSum = function (n) {
     }
 };
 
-console.log(oddSum(5));
+console.log(oddSum(7));

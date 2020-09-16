@@ -8,7 +8,7 @@ let bottle = function(n) {
         console.log(n+ " bottles of water on the wall,\n" 
         +n+ " bottles of water,\n" +
         "ya’ take one down, ya’ pass it around,\n"
-         +(n-1)+ " bottles of water on the wall.\n" );
+        +(n-1)+ " bottles of water on the wall.\n" );
         bottle(n-1);
     }
 };
