@@ -246,7 +246,7 @@ class Eights {
 
 let deck = new Deck("Deck");
 deck.shuffle();
-
+console.log(deck);
 let hand = new Hand("Hand");
 deck.deal(hand, 5);
 hand.display();
