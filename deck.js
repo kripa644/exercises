@@ -1,3 +1,15 @@
+class Card {
+    constructor(rank, suit) {
+        this.rank = rank;
+        this.suit = suit;
+    }
+    getRank() {
+        return this.rank;
+    }
+    getSuit() {
+        return this.suit;
+    }
+}
 class CardCollection {
     constructor(label) {
         this.label = label;
@@ -47,11 +59,12 @@ class Deck extends CardCollection {
 
         for (let suit in suits) {
             for (let value in values) {
-                this.cards.push(`${values[value]} of ${suits[suit]}`);
+                this.cards.push(new Card(values[value], suits[suit]));
            }
         }
 
     }
+    
     shuffle() {
         const cards = this.cards;
         let m = cards.length, i;
