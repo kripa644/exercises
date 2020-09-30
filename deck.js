@@ -1,14 +1,9 @@
-//Deck.js
+"use strict";
+//deck.js
 class Card {
     constructor(rank, suit) {
         this.rank = rank;
         this.suit = suit;
-    }
-    getRank() {
-        return this.rank;
-    }
-    getSuit() {
-        return this.suit;
     }
 }
 class CardCollection {
@@ -36,7 +31,7 @@ class CardCollection {
         return this.cards.length === 0;
     }
     last() {
-        let i = this.cards.length;
+        let i = this.cards.length - 1;
         return this.cards[i];
     }
     deal(that, n) {
@@ -55,13 +50,13 @@ class Deck extends CardCollection {
 
     constructor(label) {
         super(label);
-        const suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades'];
-        const values = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King'];
+        const suits = ["Clubs", "Diamonds", "Hearts", "Spades"];
+        const values = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"];
 
         for (let suit in suits) {
             for (let value in values) {
                 this.cards.push(new Card(values[value], suits[suit]));
-           }
+            }
         }
 
     }
@@ -71,13 +66,13 @@ class Deck extends CardCollection {
         let m = cards.length, i;
       
         while (m) {
-          i = Math.floor(Math.random() * m--);
+            i = Math.floor(Math.random() * m--);
       
-          [cards[m], cards[i]] = [cards[i], cards[m]];
+            [cards[m], cards[i]] = [cards[i], cards[m]];
         }
       
         return this;
-      }
+    }
 }
 
 class Hand extends CardCollection {
@@ -90,7 +85,6 @@ class Hand extends CardCollection {
         for (let i = 0; i < this.cards.length; i++) {
             console.log(this.cards[i]);
         }
-        console.log();
     }
 }
 
@@ -116,9 +110,9 @@ class Player {
     searchForMatch(prev) {
         for (let i = 0; i < this.hand.length; i++) {
             let card = this.hand.getCard(i);
-                if (this.cardMatches(card, prev)) {
-                    return this.hand.popCard2();
-               }
+            if (this.cardMatches(card, prev)) {
+                return this.hand.popCard2();
+            }
         }
         return null;
     }
@@ -134,13 +128,13 @@ class Player {
     }
     
     static cardMatches(card1, card2) {
-        if (card1.getSuit() == card2.getSuit()) {
+        if (card1.suit === card2.suit) {
             return true;
         }
-        if (card1.getRank() == card2.getRank()) {
+        if (card1.rank === card2.suit) {
             return true;
         }
-        if (card1.getRank() == 8) {
+        if (card1.rank === 8) {
             return true;
         }
         return false;
@@ -150,13 +144,13 @@ class Player {
         let sum = 0;
         for (let i = 0; i < this.hand.size(); i++) {
             let card = this.hand.getCard(i);
-            let rank = card.getRank();
-            if (rank == 8) {
-                sum -= 20;
-            } else if (rank > 10) {
-                sum -= 10;
+            let rank = card.rank;
+            if (rank === 8) {
+                sum += 20;
+            } else if (rank <= 10) {
+                sum += rank;
             } else {
-                sum -= rank;
+                sum += 10;
             }
         }
         return sum;
@@ -170,21 +164,20 @@ class Player {
 }
 class Eights {
     constructor() {
-         this.deck = new Deck("Deck");
-         this.deck.shuffle();
-         let handSize = 5;
+        this.deck = new Deck("Deck");
+        this.deck.shuffle();
 
-         this.one = new Player("Allen");
-         this.deck.deal(one.hand, handSize);
+        this.one = new Player("Allen");
+        this.deck.deal(this.one.hand, 5);
 
-         this.two = new Player("Chris");
-         this.deck.deal(two.hand, handSize);
+        this.two = new Player("Chris");
+        this.deck.deal(this.two.hand, 5);
 
-         this.discardPile = new Hand("Discards");
-         this.deck.deal(discardPile, 1);
+        this.discardPile = new Hand("Discards");
+        this.deck.deal(this.discardPile, 1);
 
-         this.drawPile = new Hand("Draw pile");
-         this.deck.dealAll(drawPile);
+        this.drawPile = new Hand("Draw pile");
+        this.deck.dealAll(this.drawPile);
 
     }
 
@@ -200,12 +193,12 @@ class Eights {
     }
     draw() {
         if (this.drawPile.empty()) {
-            reshuffle();
+            this.reshuffle();
         }
         return this.drawPile.popCard();
     }
     nextPlayer(current) {
-        if (current == this.one) {
+        if (current === this.one) {
             return this.two;
         } else {
             return this.one;
@@ -231,21 +224,21 @@ class Eights {
     playGame() {
         let player = this.one;
 
-    // keep playing until there's a winner
+        // keep playing until there's a winner
         while (!this.isDone()) {
             this.displayState();
-            this.waitForUser();
             this.takeTurn(player);
             player = this.nextPlayer(player);
         }
 
-    // display the final score
+        // display the final score
         this.one.displayScore();
         this.two.displayScore();
     }
 }
 
 let deck = new Deck("Deck");
+console.log(deck);
 deck.shuffle();
 
 let hand = new Hand("Hand");
